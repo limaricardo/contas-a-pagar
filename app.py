@@ -72,10 +72,14 @@ def getContasAPagar():
         data_vencimento = req['data']['dataVencimento']
         pago = req['data']['pago']
         notas_fiscais = req['data']['notasFiscais'][0]
+        print("notas fiscais:")
+        print(notas_fiscais)
 
         # Treat data to check if fornecedor id is the same for the Notas Fiscais
         checkedNotas = checkNotas(conn, fornecedor)
         checkedNotas = checkedNotas['data']
+        print("checked notas:")
+        print(checkedNotas)
         
         treatedCheck = []
         notas = []
@@ -83,10 +87,15 @@ def getContasAPagar():
         countNOTOK = 0
 
         for row in checkedNotas:
+            print("row checked")
             treatedCheck.append(row['id'])
+            print(row['id'])
+
 
         for nota in notas_fiscais:
             notas.append(nota)
+            print("nota")
+            print(nota)
 
         for row in notas:
             if row in treatedCheck:
