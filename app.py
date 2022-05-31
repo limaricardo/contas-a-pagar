@@ -6,14 +6,18 @@ from decimal import *
 from helpers import checkNotas,selectFornecedor, selectContasAPagar, selectNotaFiscal
 from contasAPagar import contasAPagarList, getTotal
 import os
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+
+cors = CORS(app, resources={r"/*": {"origins": "https://lucrorural-front-end.herokuapp.com/"}})
+
 env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
 app.config.from_object(env_config)
 
 # Connect to database and set a cursor
-DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL = os.environ['REACT_APP_DATABASE_URL']
 print(DATABASE_URL)
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursos = conn.cursor()
