@@ -2,7 +2,7 @@ CREATE TABLE fornecedor(
     id uuid DEFAULT uuid_generate_v4 (),
     nome VARCHAR,
     cnpj VARCHAR,
-    telefone BYTEA,
+    telefone VARCHAR,
     PRIMARY KEY (id)
 );
 
