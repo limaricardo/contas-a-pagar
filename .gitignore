@@ -1,6 +1,5 @@
 .env
 .flaskenv
 venv
-cryptography.py
 node_modules
 config.py
