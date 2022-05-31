@@ -2,4 +2,3 @@
 .flaskenv
 venv
 node_modules
-config.py
