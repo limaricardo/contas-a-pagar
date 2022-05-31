@@ -17,7 +17,7 @@ cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Connect to database and set a cursor
 DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL)
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
 class DecimalEncoder(json.JSONEncoder):
