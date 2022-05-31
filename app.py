@@ -14,6 +14,7 @@ app.config.from_object(env_config)
 
 # Connect to database and set a cursor
 DATABASE_URL = os.environ['DATABASE_URL']
+print(DATABASE_URL)
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursos = conn.cursor()
 

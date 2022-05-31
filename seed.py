@@ -1,13 +1,11 @@
 import pandas as pd
 from sqlalchemy import create_engine
 import os
-from cryptography import encrypt, decrypt
-from server import DATABASE_URL
-
+from cryptography import encrypt
+import psycopg2
 
 
 DATABASE_URL = os.environ['DATABASE_URL']
-
 # Import CSV file(fornecedor) to get as DataFrame
 data = pd.read_csv (r"C:\Users\ricar\Desktop\csv-files\fornecedor\fornecedor.csv", sep=';', usecols=[0,1,2,3])
 fornecedores = pd.DataFrame(data)
@@ -17,6 +15,7 @@ data = pd.read_csv (r"C:\Users\ricar\Desktop\csv-files\notaFiscal\notaFiscal.csv
 nota_fiscal = pd.DataFrame(data)
 
 # Create Engine from sqlAlchemy to connect Dataframe to database
+
 
 engine = create_engine(DATABASE_URL)
 
