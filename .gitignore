@@ -2,3 +2,4 @@
 .flaskenv
 venv
 cryptography.py
+node_modules

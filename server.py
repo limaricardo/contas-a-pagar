@@ -1,6 +1,5 @@
-from tabnanny import check
+
 from flask import Flask, request, redirect
-import pandas as pd;
 import psycopg2
 from flask_cors import CORS
 import json
