@@ -1,7 +1,6 @@
 
 from flask import Flask, request, redirect
 import psycopg2
-from flask_cors import CORS
 import json
 from decimal import *
 from helpers import checkNotas,selectFornecedor, selectContasAPagar, selectNotaFiscal
@@ -10,11 +9,13 @@ import os
 
 
 app = Flask(__name__)
+env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 # Connect to database and set a cursor
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-
+cursos = conn.cursor()
 
 class DecimalEncoder(json.JSONEncoder):
     def default(self, obj):
