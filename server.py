@@ -6,15 +6,18 @@ import json
 from decimal import *
 from helpers import checkNotas,selectFornecedor, selectContasAPagar, selectNotaFiscal
 from contasAPagar import contasAPagarList, getTotal
-import uuid
+import os
 
 
 app = Flask(__name__)
+env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Connect to database and set a cursor
-conn = psycopg2.connect("host=localhost dbname=lucrorural user=postgres password=1234")
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL)
 
 
 class DecimalEncoder(json.JSONEncoder):
