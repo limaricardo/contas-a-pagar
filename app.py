@@ -18,7 +18,7 @@ app.config.from_object(env_config)
 
 # Connect to database and set a cursor
 HOST = os.environ['HOST']
-DBNAME = os.environ['DATABASE']
+DBNAME = os.environ['DATABASE_NAME']
 USER = os.environ['DATABASE_USER']
 PASSWORD = os.environ['DATABASE_PASSWORD']
 
