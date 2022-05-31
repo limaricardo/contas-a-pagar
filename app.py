@@ -17,12 +17,12 @@ env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
 app.config.from_object(env_config)
 
 # Connect to database and set a cursor
-host = os.environ['REACT_APP_HOST']
-dbname = os.environ['REACT_APP_DATABASE']
-user = os.environ['REACT_APP_DATABASE_USER']
-password = os.environ['REACT_APP_DATABASE_PASSWORD']
+HOST = os.environ['HOST']
+DBNAME = os.environ['DATABASE']
+USER = os.environ['DATABASE_USER']
+PASSWORD = os.environ['DATABASE_PASSWORD']
 
-conn = psycopg2.connect("host={host} dbname={dbname} user={user} password={password}", sslmode='require')
+conn = psycopg2.connect("host={HOST} dbname={DBNAME} user={USER} password={PASSWORD}", sslmode='require')
 cursos = conn.cursor()
 
 class DecimalEncoder(json.JSONEncoder):
