@@ -22,7 +22,7 @@ DBNAME = os.environ['DATABASE_NAME']
 USER = os.environ['DATABASE_USER']
 PASSWORD = os.environ['DATABASE_PASSWORD']
 
-conn = psycopg2.connect("host={HOST} dbname={DBNAME} user={USER} password={PASSWORD}", sslmode='require')
+conn = psycopg2.connect(host=HOST, dbname=DBNAME, user=USER, password=PASSWORD, sslmode='require')
 cursos = conn.cursor()
 
 class DecimalEncoder(json.JSONEncoder):
