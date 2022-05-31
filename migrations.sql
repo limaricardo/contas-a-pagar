@@ -24,7 +24,7 @@ CREATE TABLE contas_a_pagar (
     fornecedor uuid,
     data_vencimento DATE,
     pago BOOLEAN,
-    notas_fiscais uuid [],
+    notas_fiscais VARCHAR [],
     CONSTRAINT fk_contas_a_pagar_fornecedor FOREIGN KEY(fornecedor) REFERENCES fornecedor(id),
     CONSTRAINT fk_contas_a_pagar_nota_fiscal FOREIGN KEY(nota_fiscal) REFERENCES nota_fiscal(id),
     PRIMARY KEY (id)
