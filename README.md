@@ -16,9 +16,9 @@ A aplicação consiste em uma tabela de Contas a Pagar, onde o cliente poderá c
 ### Adicionar nova conta a pagar
 ![image](https://user-images.githubusercontent.com/81928006/171309006-4bf6c61f-0ed8-4717-ac4e-60a617313501.png)
 ### Mensagem de sucesso ao adicionar nova conta a pagar
-![image](https://user-images.githubusercontent.com/81928006/171309065-c9a58dac-864f-45fd-a7bc-fec2a7aeaec6.png)
+![image](https://user-images.githubusercontent.com/81928006/171317110-b3e2d781-7915-4005-bab7-3b0e53855976.png)
 ### Mensagem de erro ao tentar adicionar fornecedor com nota fiscal de outro fornecedor
-![image](https://user-images.githubusercontent.com/81928006/171309112-73269587-ecaa-4e37-bdd2-a1b487e63d13.png)
+![image](https://user-images.githubusercontent.com/81928006/171317206-60331508-ac59-4cf2-b11b-97423881d625.png)
 ### Tela para deletar uma conta a pagar
 ![image](https://user-images.githubusercontent.com/81928006/171309186-e089add9-392a-419f-b5aa-e5cbe07f0301.png)
 ### Mensagem de erro ao tentar deletar conta com nota fiscal vinculada
