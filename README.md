@@ -11,7 +11,7 @@ A aplicação consiste em uma tabela de Contas a Pagar, onde o cliente poderá c
 - Não permitir excluir Contas a Pagar se houver Nota Fiscal vinculada.
 
 ## Layout 
-![image](https://user-images.githubusercontent.com/81928006/171308922-61779962-6278-4cbd-8cbe-c9d8c1916233.png)
+![Página principal](https://user-images.githubusercontent.com/81928006/171308922-61779962-6278-4cbd-8cbe-c9d8c1916233.png)
 ![image](https://user-images.githubusercontent.com/81928006/171309006-4bf6c61f-0ed8-4717-ac4e-60a617313501.png)
 ![image](https://user-images.githubusercontent.com/81928006/171309065-c9a58dac-864f-45fd-a7bc-fec2a7aeaec6.png)
 ![image](https://user-images.githubusercontent.com/81928006/171309112-73269587-ecaa-4e37-bdd2-a1b487e63d13.png)
