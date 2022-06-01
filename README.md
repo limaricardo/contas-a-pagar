@@ -25,6 +25,11 @@ A aplicação consiste em uma tabela de Contas a Pagar, onde o cliente poderá c
 ![image](https://user-images.githubusercontent.com/81928006/171309211-7d5188a1-5fb4-41dd-8c9d-c9435a2575ea.png)
 ### Mensagem ao deletar conta com sucesso
 ![image](https://user-images.githubusercontent.com/81928006/171315571-1276a013-145e-42db-a6a2-754795d3f7f9.png)
+### Tela para editar conta
+![image](https://user-images.githubusercontent.com/81928006/171316907-bc265637-5ce4-4e9f-9ac7-1c0ad67b1f4c.png)
+### Mensagem ao editar conta com sucesso
+![image](https://user-images.githubusercontent.com/81928006/171317000-ba957187-656e-41b8-8cc0-23e50cb15c8f.png)
+
 
 
 
