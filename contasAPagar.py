@@ -18,3 +18,5 @@ def getTotal(conn):
   cursor.close()
   return {"data": total}
 
+  
+
