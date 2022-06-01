@@ -72,14 +72,12 @@ def getContasAPagar():
         data_vencimento = req['data']['dataVencimento']
         pago = req['data']['pago']
         notas_fiscais = req['data']['notasFiscais'][0]
-        print("notas fiscais:")
-        print(notas_fiscais)
+        
 
         # Treat data to check if fornecedor id is the same for the Notas Fiscais
         checkedNotas = checkNotas(conn, fornecedor)
         checkedNotas = checkedNotas['data']
-        print("checked notas:")
-        print(checkedNotas)
+        
         
         treatedCheck = []
         notas = []
@@ -87,15 +85,12 @@ def getContasAPagar():
         countNOTOK = 0
 
         for row in checkedNotas:
-            print("row checked")
             treatedCheck.append(row['id'])
-            print(row['id'])
+            
 
 
         for nota in notas_fiscais:
             notas.append(nota)
-            print("nota")
-            print(nota)
 
         for row in notas:
             if row in treatedCheck:
@@ -214,7 +209,7 @@ def getContasAPagarEdit():
         # If there aren't Notas Fiscais, will be inserted as NULL
         elif notas == []:
             cursor = conn.cursor()           
-            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s WHERE id = %s VALUES(%s, %s, %s, %s)", (fornecedor, data_vencimento, pago, id))
+            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s WHERE id = %s", (fornecedor, data_vencimento, pago, id))
             conn.commit()
             cursor.close()
             return redirect("/contas-a-pagar")
@@ -222,7 +217,7 @@ def getContasAPagarEdit():
         # If there are Notas Fiscais, everything will be inserted as expected
         elif countNOTOK <= 0: 
             cursor = conn.cursor()
-            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s, notas_fiscais = %s  WHERE id = %s VALUES(%s, %s, %s, %s, %s)", (fornecedor, data_vencimento, pago, notas, id))
+            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s, notas_fiscais = %s  WHERE id = %s", (fornecedor, data_vencimento, pago, notas, id))
             conn.commit()
             cursor.close()
             return redirect("/contas-a-pagar")

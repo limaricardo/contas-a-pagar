@@ -7,7 +7,6 @@ def contasAPagarList(conn):
   contasAPagarList = cursor.fetchall()
   for row in contasAPagarList:
     row['telefone'] = decrypt(row['telefone'])
-    print(row['telefone'])
   cursor.close()
   return {"data": contasAPagarList}
 
