@@ -2,14 +2,11 @@ from ast import Raise
 from psycopg2.extras import RealDictCursor
 
 def checkNotas(conn, fornecedor):
-    if not fornecedor:
-        raise ValueError('Selecione um fornecedor da lista')
-    else:
-        cursor = conn.cursor(cursor_factory=RealDictCursor)
-        cursor.execute("SELECT nota_fiscal.id FROM fornecedor JOIN nota_fiscal ON fornecedor.id = nota_fiscal.fornecedor WHERE fornecedor.id = %s", (fornecedor, ))
-        checkedNotas = cursor.fetchall()
-        cursor.close()
-        return {"data": checkedNotas}
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    cursor.execute("SELECT nota_fiscal.id FROM fornecedor JOIN nota_fiscal ON fornecedor.id = nota_fiscal.fornecedor WHERE fornecedor.id = %s", (fornecedor, ))
+    checkedNotas = cursor.fetchall()
+    cursor.close()
+    return {"data": checkedNotas}
 
 def selectFornecedor(conn):
     cursor = conn.cursor(cursor_factory=RealDictCursor)

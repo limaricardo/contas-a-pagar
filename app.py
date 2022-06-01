@@ -221,6 +221,11 @@ def getContasAPagarEdit():
             conn.commit()
             cursor.close()
             return redirect("/contas-a-pagar")
+
+
+    @app.errorhandler(Exception)          
+    def basic_error(e):          
+        return "an error occured: " + str(e)
         
 
 if __name__ == "__main__":
