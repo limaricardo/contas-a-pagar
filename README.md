@@ -1,5 +1,7 @@
 # lucrorural-dev
 
+Ao clicar no link do projeto, aperte "ctrl" + "F5" para tirar o servidor Heroku do modo 'idle'. A inatividade do nível gratuito permite que o Heroku ofereça esse nível para desenvolvimento/teste, sem um grande custo indireto de servidores em execução constante.
+
 # Sobre o projeto
 
 https://lucrorural-front-end.herokuapp.com/
