@@ -44,6 +44,12 @@ listNotaFiscal = selectNotaFiscal(conn)
 listContasAPagar = selectContasAPagar(conn)
 
 
+@app.route("/")
+def index():
+    ip_address = request.remote_addr
+    return redirect("/contas-a-pagar")
+
+
 @app.route("/fornecedores")
 def getFornecedor():
     listFornecedor = selectFornecedor(conn)
