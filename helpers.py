@@ -3,7 +3,7 @@ from psycopg2.extras import RealDictCursor
 
 def checkNotas(conn, fornecedor):
     if not fornecedor:
-        raise ValueError('Não é possivel adicionar nova nota se fornecedor não for selecionado')
+        raise Exception('Não é possivel adicionar nova nota se fornecedor não for selecionado')
     else:
         cursor = conn.cursor(cursor_factory=RealDictCursor)
         cursor.execute("SELECT nota_fiscal.id FROM fornecedor JOIN nota_fiscal ON fornecedor.id = nota_fiscal.fornecedor WHERE fornecedor.id = %s", (fornecedor, ))

@@ -1,5 +1,5 @@
 
-from flask import Flask, request, redirect, session
+from flask import Flask, request, redirect
 import psycopg2
 import json
 from decimal import *
@@ -108,7 +108,7 @@ def getContasAPagar():
 
         # If any Nota Fiscal is from another Fornecedor, we won't insert in database and will return an error
         if countNOTOK > 0:
-            raise ValueError('Uma ou mais Notas Fiscais não pertencem ao mesmo fornecedor')
+            raise Exception('Uma ou mais Notas Fiscais não pertencem ao mesmo fornecedor')
 
         # If there aren't Notas Fiscais, will be inserted as NULL
         elif notas == []:
