@@ -1,5 +1,5 @@
 
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, session
 import psycopg2
 import json
 from decimal import *
@@ -47,6 +47,9 @@ listContasAPagar = selectContasAPagar(conn)
 @app.route("/")
 def index():
     ip_address = request.remote_addr
+
+     #Forget any user id
+    session.clear()
     return redirect("/contas-a-pagar")
 
 
@@ -215,7 +218,7 @@ def getContasAPagarEdit():
         # If there aren't Notas Fiscais, will be inserted as NULL
         elif notas == []:
             cursor = conn.cursor()           
-            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s WHERE id = %s", (fornecedor, data_vencimento, pago, id))
+            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s, notas_fiscais = '' WHERE id = %s", (fornecedor, data_vencimento, pago, id))
             conn.commit()
             cursor.close()
             return redirect("/contas-a-pagar")
