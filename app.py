@@ -46,10 +46,6 @@ listContasAPagar = selectContasAPagar(conn)
 
 @app.route("/")
 def index():
-    ip_address = request.remote_addr
-
-     #Forget any user id
-    session.clear()
     return redirect("/contas-a-pagar")
 
 
