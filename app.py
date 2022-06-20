@@ -22,6 +22,7 @@ DBNAME = os.environ['DATABASE_NAME']
 USER = os.environ['DATABASE_USER']
 PASSWORD = os.environ['DATABASE_PASSWORD']
 
+# conn = psycopg2.connect("host=localhost dbname=lucrorural user=postgres password=1234")
 conn = psycopg2.connect(host=HOST, dbname=DBNAME, user=USER, password=PASSWORD, sslmode='require')
 cursos = conn.cursor()
 
@@ -184,6 +185,7 @@ def getContasAPagarEdit():
         notas_fiscais = req['data']['notasFiscais'][0]
         id = req['data']['id']
 
+
         # Treat data to check if fornecedor id is the same for the Notas Fiscais
         checkedNotas = checkNotas(conn, fornecedor)
         checkedNotas = checkedNotas['data']
@@ -199,12 +201,12 @@ def getContasAPagarEdit():
         for nota in notas_fiscais:
             notas.append(nota)
 
+
         for row in notas:
             if row in treatedCheck:
                 countOK += 1
             else: 
                 countNOTOK += 1
-
         
 
         # If any Nota Fiscal is from another Fornecedor, we won't insert in database and will return an error
@@ -214,7 +216,7 @@ def getContasAPagarEdit():
         # If there aren't Notas Fiscais, will be inserted as NULL
         elif notas == []:
             cursor = conn.cursor()           
-            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s, notas_fiscais = '' WHERE id = %s", (fornecedor, data_vencimento, pago, id))
+            cursor.execute("UPDATE contas_a_pagar SET fornecedor = %s, data_vencimento = %s, pago = %s, notas_fiscais = NULL  WHERE id = %s", (fornecedor, data_vencimento, pago, id))
             conn.commit()
             cursor.close()
             return redirect("/contas-a-pagar")
